@@ -20,6 +20,14 @@ class Snake {
     }
   }
 
+  Dir_t GetDirection() {
+    Dir_t curr;
+    mtx.lock();
+    curr = dir;
+    mtx.unlock();
+    return curr;
+  }
+
   void UpdateDirection(Dir_t dir_) {
     dbg("Updating curr dir: %d to %d\n",dir,dir_);
     mtx.lock();

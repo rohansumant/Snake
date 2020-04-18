@@ -5,6 +5,7 @@
 #include <curses.h>
 using namespace std;
 
+// COL can't be < 20, otherwise we need to refactor prompt_screen()
 const int ROW = 20, COL = 40;
 const int dx[] = {1,-1,0,0}, dy[] = {0,0,1,-1};
 
@@ -23,6 +24,8 @@ enum Collision_t {
   WALL,
   FOOD
 };
+
+#define ONESEC 1000000LL
 
 #ifdef DEBUG
 #define dbg(...) printw(__VA_ARGS__);
